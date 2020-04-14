@@ -10,7 +10,8 @@ app.use(bp.json());
 
 app.post('/api/bug', async (req, res) => {
   try {
-    await db.bugQueries.insertBug(req.body);
+    const ticketId = await db.bugQueries.insertBug(req.body);
+    await db.forumQueries.createForum(req.body, ticketId);
     res.sendStatus(201);
   } catch (err) {
     res.sendStatus(400);
@@ -20,6 +21,24 @@ app.post('/api/bug', async (req, res) => {
 app.patch('/api/bug/:id', async (req, res) => {
   try {
     await db.bugQueries.updateBug(req.body);
+    res.sendStatus(200);
+  } catch (err) {
+    res.sendStatus(400);
+  }
+});
+
+app.patch('/api/forum/:id', async (req, res) => {
+  try {
+    await db.forumQueries.addForumPost(req.body, req.params.id);
+    res.sendStatus(201);
+  } catch (err) {
+    res.sendStatus(400);
+  }
+});
+
+app.put('/api/bug/:id', async (req, res) => {
+  try {
+    await db.bugQueries.resolveBug(req.params.id);
     res.sendStatus(200);
   } catch (err) {
     res.sendStatus(400);

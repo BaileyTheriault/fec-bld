@@ -4,9 +4,10 @@ const insertBug = async (obj) => {
   const newTicket = new Bug(obj);
 
   try {
-    await newTicket.save();
+    const ticketId = await newTicket.save();
+    return ticketId.id;
   } catch (err) {
-    console.error(err);
+    return console.error(err);
   }
 };
 
@@ -18,7 +19,16 @@ const updateBug = async (obj) => {
   }
 };
 
+const resolveBug = async (bugId) => {
+  try {
+    await Bug.findOneAndUpdate({ id: bugId }, { completedAt: Date.now() });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   insertBug,
   updateBug,
+  resolveBug,
 };

@@ -16,6 +16,7 @@ const forumSchema = new Schema({
     },
     text: String,
     images: [String],
+    createdAt: Date,
   }],
 });
 
