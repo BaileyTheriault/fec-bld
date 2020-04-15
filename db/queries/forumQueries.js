@@ -27,7 +27,16 @@ const addForumPost = async (obj, id) => {
   }
 };
 
+const fetchAll = async (id) => {
+  try {
+    return await Forum.find({ bug: id });
+  } catch (err) {
+    return console.error(err);
+  }
+};
+
 module.exports = {
   createForum,
   addForumPost,
+  fetchAll,
 };

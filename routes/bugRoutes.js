@@ -3,11 +3,20 @@ const db = require('../db/index');
 
 const router = express.Router();
 
+router.get('/', async (req, res) => {
+  try {
+    const allBugs = await db.bugQueries.fetchAll();
+    res.json(allBugs);
+  } catch (err) {
+    res.sendStatus(400);
+  }
+});
+
 router.post('/', async (req, res) => {
   try {
     const ticketId = await db.bugQueries.insertBug(req.body);
     await db.forumQueries.createForum(req.body, ticketId);
-    res.sendStatus(201);
+    res.send(`${ticketId}`);
   } catch (err) {
     res.sendStatus(400);
   }
@@ -22,7 +31,7 @@ router.patch('/:id', async (req, res) => {
   }
 });
 
-router.put('/api/bug/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     await db.bugQueries.resolveBug(req.params.id);
     res.sendStatus(200);

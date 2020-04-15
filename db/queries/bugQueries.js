@@ -27,8 +27,17 @@ const resolveBug = async (bugId) => {
   }
 };
 
+const fetchAll = async () => {
+  try {
+    return await Bug.find();
+  } catch (err) {
+    return console.error(err);
+  }
+};
+
 module.exports = {
   insertBug,
   updateBug,
   resolveBug,
+  fetchAll,
 };

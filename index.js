@@ -8,5 +8,6 @@ app.use(cors());
 app.use(bp.json());
 app.use('/api/bug', require('./routes/bugRoutes'));
 app.use('/api/forum', require('./routes/forumRoutes'));
+app.use('/api/tag', require('./routes/tagRoutes'));
 
 app.listen(3000, () => console.log('Server is up on port 3000.'));
