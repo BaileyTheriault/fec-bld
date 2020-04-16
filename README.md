@@ -3,6 +3,10 @@
 ### Current Host
 The API can currently be found at ?
 
+1. [Bug Ticket API](#bug-ticket-api)
+2. [Forum API](#forum-api)
+3. [Tag API](#tag-api)
+
 # Bug Ticket API
 ### List Tickets
 
