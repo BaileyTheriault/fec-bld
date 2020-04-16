@@ -16,14 +16,16 @@ Response
 
 ```json
 [{
-  title: 'Asynchronous Swim',
-  author: {
-    name: 'Bailey Theriault',
-    profilePicture: 'https://bit.ly/2wJ3yRE',
-  },
-  description: 'How does this sprint still exist?',
-  threat: 'Critical',
-  tags: ['Team Exact Science'],
+   "title": "Asynchronous Swim",
+   "author": {
+      "name": "Bailey Theriault",
+      "profilePicture": "https://bit.ly/2wJ3yRE"
+   },
+   "description": "How does this sprint still exist?",
+   "threat": "Critical",
+   "tags": [
+      "Team Exact Science"
+   ]
 }, ...]
 ```
 
