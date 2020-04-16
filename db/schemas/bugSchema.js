@@ -9,9 +9,9 @@ const bugSchema = new Schema({
     profilePicture: { type: String },
   },
   description: String,
-  assignedTo: String,
-  createdAt: Date,
+  createdAt: { type: Date, default: Date.now },
   completedAt: Date,
+  threat: String,
   tags: [String],
 });
 

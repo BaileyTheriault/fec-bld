@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
   try {
     const ticketId = await db.bugQueries.insertBug(req.body);
     await db.forumQueries.createForum(req.body, ticketId);
-    res.send(`${ticketId}`);
+    res.status(201).send(`${ticketId}`);
   } catch (err) {
     res.sendStatus(400);
   }
@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
 router.patch('/:id', async (req, res) => {
   try {
     await db.bugQueries.updateBug(req.body);
-    res.sendStatus(200);
+    res.sendStatus(204);
   } catch (err) {
     res.sendStatus(400);
   }
@@ -34,7 +34,7 @@ router.patch('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     await db.bugQueries.resolveBug(req.params.id);
-    res.sendStatus(200);
+    res.sendStatus(204);
   } catch (err) {
     res.sendStatus(400);
   }
