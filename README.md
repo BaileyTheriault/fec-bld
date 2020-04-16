@@ -3,6 +3,8 @@
 ### Current Host
 The API can currently be found at ?
 
+___
+
 # Bug Ticket API
 ### List Tickets
 
@@ -32,6 +34,8 @@ Response
 }, ...]
 ```
 
+___
+
 ### Add Bug Ticket
 
 Adds a bug ticket
@@ -56,6 +60,8 @@ Response
 
 `'Ticket ID'`
 
+___
+
 ### Update Bug Ticket
 
 Updates a bug ticket
@@ -77,6 +83,8 @@ Body Parameters
 Response
 
 `Status: 204 No Content`
+
+___
 
 ### Resolve Bug Ticket
 
