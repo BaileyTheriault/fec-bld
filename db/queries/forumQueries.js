@@ -20,8 +20,11 @@ const createForum = async (obj, id) => {
 };
 
 const addForumPost = async (obj, id) => {
+  const newPost = obj;
+  newPost.createdAt = Date.now();
+
   try {
-    await Forum.findOneAndUpdate({ bug: id }, { $push: { posts: obj } });
+    await Forum.findOneAndUpdate({ bug: id }, { $push: { posts: newPost } });
   } catch (err) {
     console.error(err);
   }

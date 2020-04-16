@@ -3,8 +3,6 @@
 ### Current Host
 The API can currently be found at ?
 
-___
-
 # Bug Ticket API
 ### List Tickets
 
@@ -95,3 +93,108 @@ Mark a bug ticket as completed
 Response
 
 `Status: 204 No Content`
+
+___
+
+# Forum API
+
+### List Forum
+
+Get requested ticket's forum
+
+`GET /api/forum/:bugId`
+
+Response
+
+`Status: 200 OK`
+
+```json
+{
+   "title": "Asynchronous Swim",
+   "author": {
+      "name": "Bailey Theriault",
+      "profilePicture": "https://bit.ly/2wJ3yRE"
+   },
+   "description": "How does this sprint still exist?",
+   "createdAt": "2020-04-16T16:04:38.597Z",
+   "bug": 1,
+   "posts": [{
+      "author": {
+        "name": "Bailey Theriault",
+        "profilePicture": "https://bit.ly/2wJ3yRE"
+      },
+      "createdAt": "2020-04-16T16:04:38.597Z",
+      "text": "I've contacted Fred for further information.",
+      "images": [
+          "https://bit.ly/2wJ3yRE",
+          ...
+      ]
+    }, ...]
+}
+```
+
+___
+
+### Add Forum Post
+
+Adds a forum post to targeted bug
+
+`POST /api/forum/:bugId`
+
+Body Parameters
+
+| Parameter             	| Type             	| Description                                 	|
+|-----------------------	|------------------	|---------------------------------------------	|
+| text                 	  | text             	| text of forum post                          	|
+| author                	| object           	| contains a name & profile picture property  	|
+| author.name           	| text             	| name of author                              	|
+| author.profilePicture 	| text             	| url link to profile picture                 	|
+| images                 	| array of strings 	| url links to images                         	|
+
+Response
+
+`Status: 201 Created`
+
+___
+
+# Tag API
+
+### List Tags
+
+Lists all tags
+
+`GET /api/tag`
+
+Response
+
+`Status: 200 OK`
+
+```json
+[
+  {
+    "name": "Exact Science"
+  },
+  {
+    "name": "Pallet Town Productions"
+  },
+  ...
+]
+```
+
+___
+
+### Add Tag
+
+Add a new tag
+
+`POST /api/tag`
+
+Body Parameters
+
+| Parameter             	| Type             	| Description                                 	|
+|-----------------------	|------------------	|---------------------------------------------	|
+| name                 	  | text             	| name of tag                                 	|
+
+Response
+
+`Status: 201 Created`

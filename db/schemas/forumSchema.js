@@ -9,6 +9,7 @@ const forumSchema = new Schema({
     profilePicture: { type: String },
   },
   description: String,
+  createdAt: { type: Date, default: Date.now },
   posts: [{
     author: {
       name: { type: String },
