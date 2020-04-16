@@ -11,9 +11,9 @@ const insertBug = async (obj) => {
   }
 };
 
-const updateBug = async (obj) => {
+const updateBug = async (obj, bugId) => {
   try {
-    await Bug.findOneAndUpdate({ id: obj.id }, obj);
+    await Bug.findOneAndUpdate({ id: bugId }, obj);
   } catch (err) {
     console.error(err);
   }

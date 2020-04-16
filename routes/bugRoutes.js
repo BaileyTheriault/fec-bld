@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
 
 router.patch('/:id', async (req, res) => {
   try {
-    await db.bugQueries.updateBug(req.body);
+    await db.bugQueries.updateBug(req.body, req.params.id);
     res.sendStatus(204);
   } catch (err) {
     res.sendStatus(400);
@@ -34,7 +34,7 @@ router.patch('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     await db.bugQueries.resolveBug(req.params.id);
-    res.sendStatus(204);
+    res.sendStatus(200);
   } catch (err) {
     res.sendStatus(400);
   }
