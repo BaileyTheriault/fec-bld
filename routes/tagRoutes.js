@@ -21,4 +21,13 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.delete('/:tag', async (req, res) => {
+  try {
+    await db.tagQueries.deleteTag(req.params.tag);
+    res.sendStatus(204);
+  } catch (err) {
+    res.send(`Could not find tag called ${req.params.tag}`);
+  }
+});
+
 module.exports = router;

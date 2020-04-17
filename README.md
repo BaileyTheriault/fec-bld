@@ -205,3 +205,15 @@ Body Parameters
 Response
 
 `Status: 201 Created`
+
+___
+
+### Delete Tag
+
+Deletes a tag by name, case-insensitive
+
+`DELETE /api/tag/:tagName`
+
+Response
+
+`Status: 204 No Content`

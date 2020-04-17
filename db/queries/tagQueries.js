@@ -17,7 +17,17 @@ const addTag = async (tag) => {
   }
 };
 
+const deleteTag = async (tag) => {
+  try {
+    const regEx = new RegExp(`^${tag}$`, 'i');
+    await Tag.deleteOne({ name: regEx });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   fetchAll,
   addTag,
+  deleteTag,
 };
