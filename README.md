@@ -28,6 +28,7 @@ Response
    "description": "How does this sprint still exist?",
    "threat": "Critical",
    "createdAt": "2020-04-16T16:04:38.597Z",
+   "dueDate": "2020-04-20T16:04:38.597Z",
    "completedAt": "Field will not exist unless applicable",
    "id": 1,
    "tags": [
@@ -55,6 +56,7 @@ Body Parameters
 | description           	| text             	| description of the bug                      	|
 | threat                	| text             	| options are Critical/Important/Low-Priority 	|
 | tags                  	| array of strings 	| all tags associated with said bug           	|
+| dueDate                  | date            	| assigned due date by user                    	|
 
 Response
 
@@ -81,6 +83,7 @@ Body Parameters
 | description           	| text             	| description of the bug                      	|
 | threat                	| text             	| options are Critical/Important/Low-Priority 	|
 | tags                  	| array of strings 	| all tags associated with said bug           	|
+| dueDate                  | date            	| assigned due date by user                    	|
 
 Response
 

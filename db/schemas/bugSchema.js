@@ -10,6 +10,7 @@ const bugSchema = new Schema({
   },
   description: String,
   createdAt: { type: Date, default: Date.now },
+  dueDate: Date,
   completedAt: Date,
   threat: String,
   tags: [String],
